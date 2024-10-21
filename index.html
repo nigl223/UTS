@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PIBS | UTS</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body onload="updateSection(null);">
+    <header>
+      <div class="header-container">
+        <img class="header-logo" src="foto.jpeg" alt="Foto" />
+        <h1>Profil Mahasiswa</h1>
+      </div>
+    </header>
+
+    <nav>
+      <div class="menu-toggle" onclick="toggleMenu();">&#9776;</div>
+      <ul class="navbar">
+        <li><a href="#">Biodata</a></li>
+        <li><a href="#">Pendidikan</a></li>
+        <li><a href="#">Pengalaman</a></li>
+        <li><a href="#">Keahlian</a></li>
+      </ul>
+    </nav>
+
+    <section id="content-section"></section>
+
+    <aside>
+      <h3>Hobi</h3>
+      <ul class="hobi-list">
+        <ul>
+          <li><i class="fas fa-running"></i> <a href="#">Bulutangkis</a></li>
+          <li><i class="fas fa-music"></i> <a href="#">Musik</a></li>
+          <li><i class="fas fa-film"></i> <a href="#">Film</a></li>
+        </ul>
+      </ul>
+    </aside>
+
+    <footer>
+      <div class="footer-container">
+        <div class="social-media">
+          <ul class="social-list">
+            <li>
+              <i class="fab fa-instagram"></i>
+              <a href="#">@mnnigel_</a>
+            </li>
+            <li>
+              <i class="fab fa-facebook"></i>
+              <a href="#">@mnnigel_</a>
+            </li>
+            <li>
+              <i class="fab fa-twitter"></i>
+              <a href="#">@mnnigel_</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; Copyright 2024. All Rights Reserved</p>
+        </div>
+
+        <div class="website-info">
+          <p><strong>Nigel</strong></p>
+          <p>Tangkis UTS</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector(".navbar");
+      menu.classList.toggle("show");
+    }
+
+    const navLinks = document.querySelectorAll(".navbar a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        const sectionId = this.textContent.toLowerCase();
+        updateSection(sectionId);
+      });
+    });
+
+    function updateSection(section) {
+      const contentSection = document.getElementById("content-section");
+      let content = "";
+
+      switch (section) {
+        case "biodata":
+          content = `
+                <article>
+                    <h2>Biodata</h2>
+                    <ul class="content-list">
+                        <li><strong>NIM: </strong> 2022081044</li>
+                        <li><strong>Nama: </strong> Muhammad Nigel</li>
+                        <li><strong>Agama: </strong> Islam</li>
+                        <li><strong>Tanggal Lahir: </strong> 8 Juni 2004</li>
+                        <li><strong>Tempat Lahir: </strong> Jakarta</li>
+                    </ul>
+                </article>
+                `;
+          break;
+        case "pendidikan":
+          content = `
+                    <article>
+                        <h2>Pendidikan</h2>
+                        <ul class="content-list">
+                            <li><strong>SMA: </strong> SMAN 87 Jakarta</li>
+                            <li><strong>Tahun Masuk: </strong> 2019</li>
+                        </ul>
+                    </article>
+                    `;
+          break;
+        case "pengalaman":
+          content = `
+                    <article>
+                        <h2>Pengalaman</h2>
+                        <ul class="content-list">
+                            <li><strong>Kerja: </strong> Animator of the fox the folks</li>
+                        </ul>
+                    </article>
+                    `;
+          break;
+        case "keahlian":
+          content = `
+                        <article>
+                            <h2>Keahlian</h2>
+                            <ul class="content-list">
+                                <li><strong>Unfaedah: </strong> Menjinakan Kucing</li>
+                            </ul>
+                        </article>
+                        `;
+          break;
+        default:
+          content = `
+                    <article>
+                        <h2>Biodata</h2>
+                        <ul class="content-list">
+                            <li><strong>NIM: </strong> 2022081044</li>
+                            <li><strong>Nama: </strong> Muhammad Nigel</li>
+                            <li><strong>Agama: </strong> Islam</li>
+                            <li><strong>Tanggal Lahir: </strong> 8 Juni 2004</li>
+                            <li><strong>Tempat Lahir: </strong> Jakarta</li>
+                        </ul>
+                    </article>
+                    `;
+          break;
+      }
+
+      contentSection.innerHTML = content;
+    }
+  </script>
+</html>
