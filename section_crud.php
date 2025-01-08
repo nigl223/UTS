@@ -96,6 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sectionCRUD->deleteItem($id);
     }
 
-    echo "<script>alert('Success!!'); window.location = 'admins/index.php';</script>";
+    echo "<script>alert('Success!!'); window.location = 'admins/admin_index.php';</script>";
     exit;
 }
