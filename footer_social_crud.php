@@ -171,6 +171,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $crud->delete($id);
     }
 
-    echo "<script> alert('Success!'); window.location.replace('admins/index.php');</script>";
+    echo "<script> alert('Success!'); window.location.replace('admins/admin_index.php');</script>";
     exit();
 }
